@@ -35,7 +35,7 @@ const SignupPage = () => {
   ```
 */
 
-  const handleRegister = async (e: React.SyntheticEvent) => {
+  const handleRegister = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
     const target = e.target as typeof e.target & {
