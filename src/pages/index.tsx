@@ -32,15 +32,14 @@ export default function Login() {
         </div>
 
         <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
-          <div>
-            <SignInButton
-              afterSignInUrl={`${urlPrefix}experiences/`}
-              afterSignUpUrl={`${urlPrefix}signup/`}
-              className="mt-3 flex w-full justify-center rounded-full border border-pink-500 bg-pink-500 py-1.5 pt-3 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500"
-            >
+          <SignInButton
+            afterSignInUrl={`${urlPrefix}experiences/`}
+            afterSignUpUrl={`${urlPrefix}signup/`}
+          >
+            <button className="mt-3 flex w-full justify-center rounded-full border border-pink-500 bg-pink-500 py-1.5 pt-3 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500">
               Regístrate
-            </SignInButton>
-          </div>
+            </button>
+          </SignInButton>
 
           <div>
             <p className="mt-6 text-center text-sm text-gray-500">
@@ -49,9 +48,10 @@ export default function Login() {
             <SignInButton
               afterSignInUrl={`${urlPrefix}experiences/`}
               afterSignUpUrl={`${urlPrefix}signup/`}
-              className="mt-3 flex w-full justify-center rounded-full border border-pink-500 px-3 py-1.5 text-sm font-semibold leading-6 text-pink-500 shadow-sm hover:bg-pink-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500"
             >
-              Iniciar sesión
+              <button className="mt-3 flex w-full justify-center rounded-full border border-pink-500 px-3 py-1.5 text-sm font-semibold leading-6 text-pink-500 shadow-sm hover:bg-pink-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500">
+                Iniciar sesión
+              </button>
             </SignInButton>
           </div>
         </div>
