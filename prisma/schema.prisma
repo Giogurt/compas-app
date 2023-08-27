@@ -11,12 +11,6 @@ datasource db {
     directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
 model Experience {
     id         String            @id @default(cuid())
     name       String            @db.VarChar(200)
@@ -26,19 +20,21 @@ model Experience {
     categories Category[]
     host       Compa             @relation(fields: [hostId], references: [id])
     hostId     String
+    latitude   Float
+    longitude  Float
     createdAt  DateTime          @default(now())
     updatedAt  DateTime          @updatedAt
 }
 
 model Compa {
     id              String            @id @default(cuid())
-    clerkId         String
-    name            String            @db.VarChar(200)
-    lastname        String            @db.VarChar(200)
-    birthday        DateTime          @db.Date
-    state           String            @db.VarChar(50)
-    city            String            @db.VarChar(50)
-    host            Boolean
+    authId          String
+    // name            String            @db.VarChar(200)
+    // lastname        String            @db.VarChar(200)
+    // birthday        DateTime          @db.Date
+    // state           String            @db.VarChar(50)
+    // city            String            @db.VarChar(50)
+    // host            Boolean
     experiences     CompaExperience[]
     hostExperiences Experience[]
     categories      Category[]
