@@ -38,7 +38,7 @@ export const compasRouter = createTRPCRouter({
           city: input.city,
         },
       };
-      clerkClient.users.updateUser(ctx.userId, clerkData);
+      await clerkClient.users.updateUser(ctx.userId, clerkData);
       const compa = await ctx.prisma.compa.create({
         data: {
           authId: ctx.userId,

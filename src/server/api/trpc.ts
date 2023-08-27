@@ -12,7 +12,6 @@ import superjson from "superjson";
 import { ZodError } from "zod";
 import { prisma } from "compas/server/db";
 import { getAuth } from "@clerk/nextjs/server";
-import { RequestLike } from "@clerk/nextjs/dist/types/server/types";
 
 /**
  * 1. CONTEXT
@@ -34,12 +33,12 @@ type CreateContextOptions = Record<string, never>;
  *
  * @see https://create.t3.gg/en/usage/trpc#-serverapitrpcts
  */
-const createInnerTRPCContext = (opts?: CreateContextOptions) => {
+// const createInnerTRPCContext = (opts?: CreateContextOptions) => {
   // return {
   //   prisma,
   //   userId,
   // };
-};
+// };
 
 /**
  * This is the actual context you will use in your router. It will be used to process every request

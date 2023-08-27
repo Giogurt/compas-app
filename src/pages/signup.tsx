@@ -13,7 +13,7 @@ const SignupPage = () => {
 
   const { mutate, isLoading: isCreating } = api.compas.create.useMutation({
     onSuccess: () => {
-      router.push(`/experiences`);
+      void router.push(`/experiences`);
     },
     onError: (error) => {
       console.log(error);
@@ -143,7 +143,7 @@ const SignupPage = () => {
                   Photo
                 </label>
                 <div className="mt-2 flex items-center gap-x-3">
-                  {user && user.imageUrl ? (
+                  {user.imageUrl ? (
                     <Image
                       src={user.imageUrl}
                       className="h-12 w-12 rounded-full"
