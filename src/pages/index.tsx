@@ -33,8 +33,9 @@ export default function Login() {
 
         <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
           <SignInButton
-            afterSignInUrl={`${urlPrefix}experiences/`}
-            afterSignUpUrl={`${urlPrefix}signup/`}
+            afterSignInUrl="/experiences"
+            afterSignUpUrl="/signup"
+            mode="redirect"
           >
             <button className="mt-3 flex w-full justify-center rounded-full border border-pink-500 bg-pink-500 py-1.5 pt-3 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500">
               Regístrate
@@ -46,8 +47,8 @@ export default function Login() {
               ¿Ya tienes cuenta?
             </p>
             <SignInButton
-              afterSignInUrl={`${urlPrefix}experiences/`}
-              afterSignUpUrl={`${urlPrefix}signup/`}
+              afterSignInUrl="/experiences"
+              afterSignUpUrl="/signup"
             >
               <button className="mt-3 flex w-full justify-center rounded-full border border-pink-500 px-3 py-1.5 text-sm font-semibold leading-6 text-pink-500 shadow-sm hover:bg-pink-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500">
                 Iniciar sesión
