@@ -13,7 +13,7 @@ const SignupPage = () => {
 
   const { mutate, isLoading: isCreating } = api.compas.create.useMutation({
     onSuccess: () => {
-      void router.push(`/experiences`);
+      void router.push(`/`);
     },
     onError: (error) => {
       console.log(error);

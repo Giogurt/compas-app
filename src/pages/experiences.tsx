@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { UserButton } from "@clerk/nextjs";
 
 dayjs.extend(relativeTime);
 /*
@@ -102,25 +103,48 @@ export default function ExperiencesPage() {
   }, []);
 
   return (
-    <div className="py-12">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <Image
-          className="mx-auto"
-          src="/logo.png"
-          width={200}
-          height={200}
-          alt="Compas"
-        />
-      </div>
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Experiencias cerca de ti
-        </h2>
+    <>
+      <header className="bg-white">
+        <nav
+          className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
+          <div className="flex lg:flex-1">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Compas</span>
+              <Image
+                className="h-8 w-auto"
+                src="/logo.png"
+                width={100}
+                height={200}
+                alt="Compas"
+              />
+            </a>
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <UserButton />
+          </div>
+        </nav>
+      </header>
+      <div className="py-12">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <Image
+            className="mx-auto"
+            src="/logo.png"
+            width={200}
+            height={200}
+            alt="Compas"
+          />
+        </div>
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            Experiencias cerca de ti
+          </h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-          {experiences?.map((experience) => (
-            <div key={experience.id} className="group relative rounded-sm">
-              {/* <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow">
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            {experiences?.map((experience) => (
+              <div key={experience.id} className="group relative rounded-sm">
+                {/* <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow">
                 <a href="#">
                   <img
                     className="rounded-t-lg"
@@ -161,33 +185,34 @@ export default function ExperiencesPage() {
                 </div>
               </div> */}
 
-              <div className="aspect-h-1 aspect-w-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
-                <img
-                  src={experience.photo}
-                  alt={experience.name}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                />
-              </div>
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href="#">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {experience.name}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {dayjs(experience.date).fromNow()}
+                <div className="aspect-h-1 aspect-w-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+                  <img
+                    src={experience.photo}
+                    alt={experience.name}
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-sm text-gray-700">
+                      <a href="#">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {experience.name}
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      {dayjs(experience.date).fromNow()}
+                    </p>
+                  </div>
+                  <p className="mr-2 text-sm font-medium text-gray-900">
+                    {`Se buscan ${experience.maxCompas} compas`}
                   </p>
                 </div>
-                <p className="mr-2 text-sm font-medium text-gray-900">
-                  {`Se buscan ${experience.maxCompas} compas`}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
