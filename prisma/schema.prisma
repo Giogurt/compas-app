@@ -16,6 +16,10 @@ model Experience {
     name       String            @db.VarChar(200)
     date       DateTime
     location   String            @db.VarChar(200)
+    state      String            @db.VarChar(100)
+    city       String            @db.VarChar(100)
+    photo      String
+    maxCompas  Int
     compas     CompaExperience[]
     categories Category[]
     host       Compa             @relation(fields: [hostId], references: [id])
